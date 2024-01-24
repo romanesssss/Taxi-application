@@ -11,7 +11,7 @@ struct LocationSearchView: View {
     
     @State private var startLocationText = ""
     @Binding var showLocationSearchView: Bool
-    @EnvironmentObject private var viewModel: LocationSearchViewModel
+    @EnvironmentObject var viewModel: LocationSearchViewModel
     
     var body: some View {
         VStack {
@@ -53,7 +53,7 @@ struct LocationSearchView: View {
                         result in
                         LocationSearchResultCell(title: result.title, subtitle: result.subtitle)
                             .onTapGesture {
-                                viewModel.selectLocation(result.title)
+                                viewModel.selectLocation(result)
                                 showLocationSearchView.toggle()
                                 
                             }
